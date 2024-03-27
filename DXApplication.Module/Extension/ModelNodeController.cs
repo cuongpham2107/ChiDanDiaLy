@@ -8,37 +8,43 @@ using DevExpress.ExpressApp.Model.NodeGenerators;
 using DevExpress.XtraScheduler.Native;
 using DevExpress.XtraSpreadsheet.Model.History;
 using DXApplication.Module.Extension;
-using Microsoft.CodeAnalysis.Simplification;
 using System;
 using System.Linq;
 using System.Reflection;
 
 namespace DXApplication.Module.Extension;
 
-public class ModelNodeDetailController : ModelNodesGeneratorUpdater<ModelDetailViewLayoutNodesGenerator> {
-    public override void UpdateNode(ModelNode node) {
+public class ModelNodeDetailController : ModelNodesGeneratorUpdater<ModelDetailViewLayoutNodesGenerator>
+{
+    public override void UpdateNode(ModelNode node)
+    {
         // Cast the 'node' parameter to IModelLayout
         // to access the Layout node.        
 
     }
 }
 
-public class ModelNodeController : ModelNodesGeneratorUpdater<ModelViewsNodesGenerator> {
-    public override void UpdateNode(ModelNode viewsNode) {
+public class ModelNodeController : ModelNodesGeneratorUpdater<ModelViewsNodesGenerator>
+{
+    public override void UpdateNode(ModelNode viewsNode)
+    {
         //TODO: dùng custom attribute để điều chỉnh việc sinh application model
 
         var classes = viewsNode.Application.BOModel.Where(bom =>
             bom.Name.Contains("BusinessObjects") &&
             Type.GetType(bom.Name).GetCustomAttributes(typeof(CustomDetailViewAttribute)).Any());
-        foreach (var c in classes) {
+        foreach (var c in classes)
+        {
             var type = Type.GetType(c.Name);
             CustomDetailView(c, type, viewsNode);
         }
 
         foreach (var modelClass in viewsNode.Application.BOModel
-            .Where(bom => bom.Name.Contains("BusinessObjects"))) {
+            .Where(bom => bom.Name.Contains("BusinessObjects")))
+        {
             var type = Type.GetType(modelClass.Name);
-            if (type != null) {
+            if (type != null)
+            {
                 CustomRootListView(modelClass, type, viewsNode);
                 CustomNestedListView(modelClass, type, viewsNode);
                 Readonly(modelClass, type);
@@ -52,25 +58,33 @@ public class ModelNodeController : ModelNodesGeneratorUpdater<ModelViewsNodesGen
     /// <param name="modelClass"></param>
     /// <param name="type"></param>
     /// <param name="viewsNode"></param>
-    void CustomDetailView(IModelClass modelClass, Type type, ModelNode viewsNode) {
+    void CustomDetailView(IModelClass modelClass, Type type, ModelNode viewsNode)
+    {
         var attrs = type.GetCustomAttributes(typeof(CustomDetailViewAttribute));
-        foreach (CustomDetailViewAttribute attr in attrs.Cast<CustomDetailViewAttribute>()) {
+        foreach (CustomDetailViewAttribute attr in attrs.Cast<CustomDetailViewAttribute>())
+        {
             //var attr = type.GetCustomAttribute<AdditionalDetailViewAttribute>();
-            if (attr != null) {
+            if (attr != null)
+            {
                 //var bom = viewsNode.Application.BOModel.GetClass(type);
                 IModelDetailView detailViewNode;
-                if (string.IsNullOrEmpty(attr.ViewId)) {
+                if (string.IsNullOrEmpty(attr.ViewId))
+                {
                     detailViewNode = modelClass.DefaultDetailView;
-                } else {
+                }
+                else
+                {
                     detailViewNode = viewsNode.AddNode<IModelDetailView>(attr.ViewId);
                     detailViewNode.ModelClass = modelClass;
                 }
 
-                foreach (var f in attr.FieldsReadonly) {
+                foreach (var f in attr.FieldsReadonly)
+                {
                     detailViewNode.Items[f].SetValue("AllowEdit", false);
                 }
 
-                foreach (var f in attr.FieldsToRemove) {
+                foreach (var f in attr.FieldsToRemove)
+                {
                     detailViewNode.Items[f].Remove();
                 }
 
@@ -78,16 +92,20 @@ public class ModelNodeController : ModelNodesGeneratorUpdater<ModelViewsNodesGen
                 detailViewNode.AllowEdit = attr.AllowEdit;
                 detailViewNode.AllowNew = attr.AllowNew;
 
-                if (attr.Tabbed) {
-                    if (detailViewNode.GetNode("Layout") is IModelViewLayout layout) {
+                if (attr.Tabbed)
+                {
+                    if (detailViewNode.GetNode("Layout") is IModelViewLayout layout)
+                    {
                         var layoutNode = layout as ModelNode;
                         var mainGroup = layout.GetNode("Main") as IModelLayoutGroup;
                         mainGroup.ShowCaption = true;
                         mainGroup.Caption = "Chi tiết";
                         var mainNode = mainGroup as ModelNode;
 
-                        if (mainGroup.GetNode("Tabs") is IModelTabbedGroup tabsGroup) {
-                            foreach (var tab in tabsGroup.GetNodes<IModelLayoutGroup>()) {
+                        if (mainGroup.GetNode("Tabs") is IModelTabbedGroup tabsGroup)
+                        {
+                            foreach (var tab in tabsGroup.GetNodes<IModelLayoutGroup>())
+                            {
                                 tab.Index++;
                             }
                             var tabsNode = tabsGroup as ModelNode;
@@ -97,7 +115,9 @@ public class ModelNodeController : ModelNodesGeneratorUpdater<ModelViewsNodesGen
                             tabsNode = layout.GetNode("Tabs") as ModelNode;
                             tabsNode.AddClonedNode(mainNode, mainNode.Id);
 
-                        } else {
+                        }
+                        else
+                        {
                             var tabsNode = layout.AddNode<IModelTabbedGroup>("Tabs") as ModelNode;
                             var lastNode = mainGroup.GetNode(mainGroup.NodeCount - 1) as ModelNode;
                             lastNode.Index = 1;
@@ -118,9 +138,11 @@ public class ModelNodeController : ModelNodesGeneratorUpdater<ModelViewsNodesGen
     /// <param name="listviewNode"></param>
     /// <param name="attr"></param>
     /// <param name="viewsNode"></param>
-    void CustomListView(IModelListView listviewNode, CustomListViewAttribute attr, ModelNode viewsNode) {
+    void CustomListView(IModelListView listviewNode, CustomListViewAttribute attr, ModelNode viewsNode)
+    {
         //TODO: chỉ định detail view cho list view
-        if (!string.IsNullOrEmpty(attr.DetailViewId)) {
+        if (!string.IsNullOrEmpty(attr.DetailViewId))
+        {
             var detailView = viewsNode.GetNode(attr.DetailViewId) as IModelDetailView;
             listviewNode.DetailView = detailView;
         }
@@ -140,13 +162,16 @@ public class ModelNodeController : ModelNodesGeneratorUpdater<ModelViewsNodesGen
             listviewNode.Columns[f].Index = -1;
 
         //TODO: sắp xếp
-        for (var i = 0; i < attr.FieldsToSort.Length; i++) {
+        for (var i = 0; i < attr.FieldsToSort.Length; i++)
+        {
             var field = attr.FieldsToSort[i];
-            if (field.EndsWith(".")) {
+            if (field.EndsWith("."))
+            {
                 var f = field.TrimEnd('.');
                 listviewNode.Columns[f].SortIndex = i;
                 listviewNode.Columns[f].SortOrder = ColumnSortOrder.Descending;
-            } else listviewNode.Columns[field].SortIndex = i;
+            }
+            else listviewNode.Columns[field].SortIndex = i;
         }
 
         //TODO: nhóm cột
@@ -158,16 +183,21 @@ public class ModelNodeController : ModelNodesGeneratorUpdater<ModelViewsNodesGen
             listviewNode.Columns[f].Remove();
 
         //TODO: thêm dòng tổng
-        foreach (var field in attr.FieldsToSum) {
-            if (field.Contains(':')) {
+        foreach (var field in attr.FieldsToSum)
+        {
+            if (field.Contains(':'))
+            {
                 var items = field.Split(":", StringSplitOptions.TrimEntries & StringSplitOptions.RemoveEmptyEntries);
                 var col = items[0];
                 var sums = items[1].Split(",", StringSplitOptions.TrimEntries & StringSplitOptions.RemoveEmptyEntries);
-                foreach (var s in sums) {
+                foreach (var s in sums)
+                {
                     var column = listviewNode.Columns[col];
-                    if (column != null) {
+                    if (column != null)
+                    {
                         var sum = column.Summary.AddNode<IModelColumnSummaryItem>(s);
-                        sum.SummaryType = s.ToLower() switch {
+                        sum.SummaryType = s.ToLower() switch
+                        {
                             "count" => SummaryType.Count,
                             "sum" => SummaryType.Sum,
                             "average" => SummaryType.Average,
@@ -177,7 +207,9 @@ public class ModelNodeController : ModelNodesGeneratorUpdater<ModelViewsNodesGen
                         };
                     }
                 }
-            } else {
+            }
+            else
+            {
                 var column = listviewNode.Columns[field];
                 var sum = column.Summary.AddNode<IModelColumnSummaryItem>("Count");
                 sum.SummaryType = SummaryType.Count;
@@ -191,21 +223,28 @@ public class ModelNodeController : ModelNodesGeneratorUpdater<ModelViewsNodesGen
     /// <param name="modelClass"></param>
     /// <param name="type"></param>
     /// <param name="viewsNode"></param>
-    void CustomRootListView(IModelClass modelClass, Type type, ModelNode viewsNode) {
+    void CustomRootListView(IModelClass modelClass, Type type, ModelNode viewsNode)
+    {
         var attrs = type.GetCustomAttributes(typeof(CustomRootListViewAttribute));
-        foreach (CustomRootListViewAttribute attr in attrs.Cast<CustomRootListViewAttribute>()) {
+        foreach (CustomRootListViewAttribute attr in attrs.Cast<CustomRootListViewAttribute>())
+        {
             //var attr = type.GetCustomAttribute<CustomListViewAttribute>();
-            if (attr != null) {
+            if (attr != null)
+            {
                 //var bom = viewsNode.Application.BOModel.GetClass(type);
                 IModelListView listviewNode;
-                if (string.IsNullOrEmpty(attr.ViewId)) {
+                if (string.IsNullOrEmpty(attr.ViewId))
+                {
                     listviewNode = modelClass.DefaultListView;
-                } else {
+                }
+                else
+                {
                     listviewNode = viewsNode.AddNode<IModelListView>(attr.ViewId);
                     listviewNode.ModelClass = modelClass;
                 }
 
-                if (listviewNode != null) {
+                if (listviewNode != null)
+                {
                     CustomListView(listviewNode, attr, viewsNode);
                 }
             }
@@ -218,16 +257,20 @@ public class ModelNodeController : ModelNodesGeneratorUpdater<ModelViewsNodesGen
     /// <param name="modelClass"></param>
     /// <param name="type"></param>
     /// <param name="viewsNode"></param>
-    void CustomNestedListView(IModelClass modelClass, Type type, ModelNode viewsNode) {
+    void CustomNestedListView(IModelClass modelClass, Type type, ModelNode viewsNode)
+    {
         var attrs = type.GetCustomAttributes(typeof(CustomNestedListViewAttribute));
-        foreach (CustomNestedListViewAttribute attr in attrs.Cast<CustomNestedListViewAttribute>()) {
-            if (attr != null) {
+        foreach (CustomNestedListViewAttribute attr in attrs.Cast<CustomNestedListViewAttribute>())
+        {
+            if (attr != null)
+            {
                 IModelListView listviewNode;
                 var listviewId = $"{type.Name}_{attr.CollectionProperty}_ListView";
                 listviewNode = viewsNode.GetNode(listviewId) as IModelListView;
 
-                if (listviewNode != null) {
-                    CustomListView(listviewNode, attr, viewsNode);                   
+                if (listviewNode != null)
+                {
+                    CustomListView(listviewNode, attr, viewsNode);
                 }
             }
         }
@@ -238,24 +281,32 @@ public class ModelNodeController : ModelNodesGeneratorUpdater<ModelViewsNodesGen
     /// </summary>
     /// <param name="modelClass"></param>
     /// <param name="type"></param>
-    void Readonly(IModelClass modelClass, Type type) {
+    void Readonly(IModelClass modelClass, Type type)
+    {
         // nếu attribute áp dụng với properties
         var props = type.GetProperties().Where(pi => pi.GetCustomAttribute<ReadonlyAttribute>() != null);
-        foreach (var prop in props) {
+        foreach (var prop in props)
+        {
             modelClass.FindOwnMember(prop.Name).AllowEdit = false;
         }
         // nếu attribute áp dụng với class
         var attr = type.GetCustomAttribute<ReadonlyAttribute>();
-        if (attr != null) {
-            if (attr.IsReversed) {
-                foreach (var member in modelClass.OwnMembers) {
+        if (attr != null)
+        {
+            if (attr.IsReversed)
+            {
+                foreach (var member in modelClass.OwnMembers)
+                {
                     if (attr.Fields.Contains(member.Name))
                         member.AllowEdit = true;
                     else
                         member.AllowEdit = false;
                 }
-            } else {
-                foreach (string field in attr.Fields) {
+            }
+            else
+            {
+                foreach (string field in attr.Fields)
+                {
                     modelClass.FindOwnMember(field).AllowEdit = false;
                 }
             }

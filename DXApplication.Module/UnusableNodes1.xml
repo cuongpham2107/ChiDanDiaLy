@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <NavigationItems Id="NavigationItems">
+    <Items Id="Items">
+      <Item Id="Hồ sơ đăng ký" ImageName="registration" ViewId="Registration_ListView" Removed="True" />
+    </Items>
+  </NavigationItems>
+</Application>

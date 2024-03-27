@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <ActionDesign Id="ActionDesign">
+    <Actions Id="Actions">
+      <Action Id="DXApplication.Module.Controllers.MailController-Mail-" TargetObjectsCriteria="" />
+      <Action Id="DXApplication.Module.Controllers.Registration-Trạng thái-" TargetObjectsCriteria="[RegistrationStatus] = ##Enum#DXApplication.Blazor.Common.Enums+RegistrationStatus,New# Or [RegistrationStatus] = ##Enum#DXApplication.Blazor.Common.Enums+RegistrationStatus,Received# Or [RegistrationStatus] = ##Enum#DXApplication.Blazor.Common.Enums+RegistrationStatus,SignUpSuccess#" />
+    </Actions>
+  </ActionDesign>
+</Application>

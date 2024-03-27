@@ -22,4 +22,11 @@ public interface IListViewPopup { }
 /// Ẩn các controller không cần thiết trên domain component
 /// </summary>
 public interface IDomainComponent { }
-
+/// <summary>
+/// Refresh menu navigation sau khi object mới được tạo
+/// </summary>
+public interface IRefreshNavigation { }
+/// <summary>
+/// Đếm số lượng collection trong detailview
+/// </summary>
+public interface IDetailViewCount { }

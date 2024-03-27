@@ -13,34 +13,61 @@
     <Compile Remove="Extension\ApplicationController.cs" />
     <Compile Remove="Extension\CurrentObjectController.cs" />
     <Compile Remove="Extension\DetailViewController.cs" />
+    <Compile Remove="Extension\Draft.cs" />
     <Compile Remove="Extension\ListViewController.cs" />
     <Compile Remove="Extension\ListViewPopupController.cs" />
     <Compile Remove="Extension\NodeGenerator.cs" />
     <Compile Remove="Extension\_Draft.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Remove="Images\clipboard.png" />
+    <None Remove="Images\file.png" />
+    <None Remove="Images\info.png" />
+    <None Remove="Images\ingredient.png" />
+    <None Remove="Images\mail.png" />
+    <None Remove="Images\manage.png" />
+    <None Remove="Images\media.png" />
+    <None Remove="Images\organization.png" />
+    <None Remove="Images\product.png" />
+    <None Remove="Images\registration.png" />
+    <None Remove="Images\revision.png" />
     <None Remove="Model.DesignedDiffs.xafml" />
   </ItemGroup>
   <ItemGroup>
+    <ApplicationDefinition Include="Extension\Draft.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Images\clipboard.png" />
+    <EmbeddedResource Include="Images\file.png" />
+    <EmbeddedResource Include="Images\info.png" />
+    <EmbeddedResource Include="Images\ingredient.png" />
+    <EmbeddedResource Include="Images\mail.png" />
+    <EmbeddedResource Include="Images\manage.png" />
+    <EmbeddedResource Include="Images\media.png" />
+    <EmbeddedResource Include="Images\organization.png" />
+    <EmbeddedResource Include="Images\product.png" />
+    <EmbeddedResource Include="Images\registration.png" />
+    <EmbeddedResource Include="Images\revision.png" />
     <EmbeddedResource Include="Model.DesignedDiffs.xafml" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="DevExpress.ExpressApp" Version="22.2.3" />
-    <PackageReference Include="DevExpress.ExpressApp.AuditTrail.Xpo" Version="22.2.3" />
-    <PackageReference Include="DevExpress.ExpressApp.CloneObject.Xpo" Version="22.2.3" />
-    <PackageReference Include="DevExpress.ExpressApp.CodeAnalysis" Version="22.2.3" />
-    <PackageReference Include="DevExpress.ExpressApp.ConditionalAppearance" Version="22.2.3" />
-    <PackageReference Include="DevExpress.ExpressApp.Dashboards" Version="22.2.3" />
-    <PackageReference Include="DevExpress.ExpressApp.Objects" Version="22.2.3" />
-    <PackageReference Include="DevExpress.ExpressApp.Office" Version="22.2.3" />
-    <PackageReference Include="DevExpress.ExpressApp.ReportsV2" Version="22.2.3" />
-    <PackageReference Include="DevExpress.ExpressApp.Security.Xpo" Version="22.2.3" />
-    <PackageReference Include="DevExpress.ExpressApp.StateMachine" Version="22.2.3" />
-    <PackageReference Include="DevExpress.ExpressApp.Validation" Version="22.2.3" />
-    <PackageReference Include="DevExpress.ExpressApp.ViewVariantsModule" Version="22.2.3" />
-    <PackageReference Include="DevExpress.ExpressApp.Xpo" Version="22.2.3" />
-    <PackageReference Include="DevExpress.Persistent.Base" Version="22.2.3" />
-    <PackageReference Include="DevExpress.Persistent.BaseImpl.Xpo" Version="22.2.3" />
+    <PackageReference Include="CsvHelper" Version="31.0.2" />
+    <PackageReference Include="DevExpress.ExpressApp" Version="23.2.5" />
+    <PackageReference Include="DevExpress.ExpressApp.AuditTrail.Xpo" Version="23.2.5" />
+    <PackageReference Include="DevExpress.ExpressApp.CloneObject.Xpo" Version="23.2.5" />
+    <PackageReference Include="DevExpress.ExpressApp.CodeAnalysis" Version="23.2.5" />
+    <PackageReference Include="DevExpress.ExpressApp.ConditionalAppearance" Version="23.2.5" />
+    <PackageReference Include="DevExpress.ExpressApp.Dashboards" Version="23.2.5" />
+    <PackageReference Include="DevExpress.ExpressApp.Objects" Version="23.2.5" />
+    <PackageReference Include="DevExpress.ExpressApp.Office" Version="23.2.5" />
+    <PackageReference Include="DevExpress.ExpressApp.ReportsV2" Version="23.2.5" />
+    <PackageReference Include="DevExpress.ExpressApp.Security.Xpo" Version="23.2.5" />
+    <PackageReference Include="DevExpress.ExpressApp.StateMachine" Version="23.2.5" />
+    <PackageReference Include="DevExpress.ExpressApp.Validation" Version="23.2.5" />
+    <PackageReference Include="DevExpress.ExpressApp.ViewVariantsModule" Version="23.2.5" />
+    <PackageReference Include="DevExpress.ExpressApp.Xpo" Version="23.2.5" />
+    <PackageReference Include="DevExpress.Persistent.Base" Version="23.2.5" />
+    <PackageReference Include="DevExpress.Persistent.BaseImpl.Xpo" Version="23.2.5" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Resource.Designer.cs">
@@ -56,6 +83,17 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <None Update="UnusableNodes.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+    </None>
+    <None Update="UnusableNodes1.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+    </None>
+    <None Update="UnusableNodes2.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+    </None>
+    <None Update="UnusableNodes4.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+    </None>
   </ItemGroup>
 </Project>

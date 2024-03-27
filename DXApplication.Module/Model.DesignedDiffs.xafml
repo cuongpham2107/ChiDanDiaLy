@@ -1,17 +1,193 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Application Title="DXApplication">
+  <ActionDesign>
+    <Actions>
+      <Action Id="DXApplication.Module.Controllers.MailController-MailDossier-" TargetObjectsCriteria="[RegistrationStatus] &lt;&gt; ##Enum#DXApplication.Blazor.Common.Enums+RegistrationStatus,New#" />
+    </Actions>
+  </ActionDesign>
   <BOModel>
     <Class Name="DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyUser" Caption="Base User" />
   </BOModel>
+  <NavigationItems>
+    <Items>
+      <Item Id="Default">
+        <Items>
+          <Item Id="Registration_Amend_ListView" Removed="True" />
+          <Item Id="Registration_Dossier_ListView" Removed="True" />
+          <Item Id="Registration_ListView" Removed="True" />
+          <Item Id="Registration_Renew_ListView" Removed="True" />
+        </Items>
+      </Item>
+      <Item Id="Quản lý" ImageName="manage">
+        <Items>
+          <Item Id="Hồ sơ đăng ký" ViewId="Registration_ListView" ImageName="registration" Index="0" IsNewNode="True">
+            <Items IsNewNode="True">
+              <Item Id="Registration_Dossier_ListView" ViewId="Registration_Dossier_ListView" ObjectKey="" Index="0" IsNewNode="True" />
+              <Item Id="Registration_Renew_ListView" ViewId="Registration_Renew_ListView" ObjectKey="" Index="1" IsNewNode="True" />
+              <Item Id="Registration_Amend_ListView" ViewId="Registration_Amend_ListView" ObjectKey="" Index="2" IsNewNode="True" />
+            </Items>
+          </Item>
+          <Item Id="Organization_ListView" Index="1" />
+          <Item Id="Ingredient_ListView" Index="3" Caption="Vùng nguyên liệu" />
+          <Item Id="Media_ListView" Caption="Thư viện ảnh" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
   <Options>
     <LayoutManagerOptions RequiredFieldMark="*" />
   </Options>
   <SchemaModules>
-    <SchemaModule Name="CloneObjectModule" Version="22.2.3.0" IsNewNode="True" />
-    <SchemaModule Name="SystemModule" Version="22.2.3.0" IsNewNode="True" />
+    <SchemaModule Name="CloneObjectModule" Version="23.2.5.0" IsNewNode="True" />
+    <SchemaModule Name="SystemModule" Version="23.2.5.0" IsNewNode="True" />
   </SchemaModules>
   <Views>
     <ListView Id="ApplicationUser_ListView" Caption="Users" />
-    <ListView Id="Personnel_ListView" NewItemRowPosition="Bottom" />
+    <DetailView Id="File_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="Chi tiết" ImageName="info" />
+      </Layout>
+    </DetailView>
+    <DetailView Id="Ingredient_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" ImageName="info" Caption="Chi tiết" />
+      </Layout>
+    </DetailView>
+    <DetailView Id="Media_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" ImageName="info" Caption="Chi tiết" />
+      </Layout>
+    </DetailView>
+    <DetailView Id="Organization_DetailView">
+      <Layout>
+        <TabbedGroup Id="Tabs">
+          <LayoutGroup Id="Main" ImageName="info" />
+        </TabbedGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="Product_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="Chi tiết" ImageName="info" />
+      </Layout>
+    </DetailView>
+    <DetailView Id="Registration_Amend_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100" Caption="Chi tiết" ImageName="info">
+          <LayoutGroup Id="Detail" RelativeSize="43.875685557586834" Caption="Chi tiết">
+            <LayoutGroup Id="Detail_col1" RelativeSize="49.84177215189873">
+              <LayoutItem Id="NameOfOrganization" Index="0" RelativeSize="15.458937198067632" ViewItem="NameOfOrganization" IsNewNode="True" />
+              <LayoutItem Id="FullName" ViewItem="FullName" Index="1" RelativeSize="11.594202898550725" IsNewNode="True" />
+              <LayoutItem Id="Address" ViewItem="Address" Index="2" RelativeSize="11.594202898550725" IsNewNode="True" />
+              <LayoutItem Id="Phone" ViewItem="Phone" Index="3" RelativeSize="11.594202898550725" IsNewNode="True" />
+              <LayoutItem Id="Email" ViewItem="Email" Index="4" RelativeSize="49.75845410628019" IsNewNode="True" />
+              <LayoutItem Id="CertificateNumber" Index="5" RelativeSize="4.733727810650888" Removed="True" />
+              <LayoutItem Id="DateOfIssue" Index="5" RelativeSize="4.733727810650888" Removed="True" />
+              <LayoutItem Id="DeadlineToDate" Index="5" RelativeSize="4.733727810650888" Removed="True" />
+              <LayoutItem Id="NameCertificates" Index="5" RelativeSize="4.733727810650888" Removed="True" />
+              <LayoutItem Id="Reason" Index="5" RelativeSize="74.7534516765286" Removed="True" />
+            </LayoutGroup>
+            <LayoutGroup Id="Autoc5fe60c0-35b4-46cd-8d15-ad1874a8630c" ShowCaption="False" Caption="Autoc5fe60c0-35b4-46cd-8d15-ad1874a8630c(9)" Index="1" RelativeSize="50.15822784810127" IsNewNode="True">
+              <LayoutItem Id="NameCertificates" ViewItem="NameCertificates" Index="0" RelativeSize="15.458937198067632" IsNewNode="True" />
+              <LayoutItem Id="CertificateNumber" ViewItem="CertificateNumber" Index="1" RelativeSize="11.594202898550725" IsNewNode="True" />
+              <LayoutItem Id="DateOfIssue" ViewItem="DateOfIssue" Index="2" RelativeSize="11.594202898550725" IsNewNode="True" />
+              <LayoutItem Id="DeadlineToDate" ViewItem="DeadlineToDate" Index="3" RelativeSize="11.594202898550725" IsNewNode="True" />
+              <LayoutItem Id="RegistrationType" ViewItem="RegistrationType" Index="4" RelativeSize="11.594202898550725" IsNewNode="True" />
+              <LayoutItem Id="RegistrationStatus" ViewItem="RegistrationStatus" Index="5" RelativeSize="11.594202898550725" IsNewNode="True" />
+              <LayoutItem Id="Reason" ViewItem="Reason" Index="6" RelativeSize="26.08695652173913" IsNewNode="True" />
+              <LayoutGroup Id="Detail_col2" ShowCaption="False" Index="7" RelativeSize="0.4830917874396135" IsNewNode="True" />
+            </LayoutGroup>
+            <LayoutGroup Id="Detail_col2" RelativeSize="50.07587253414264" Caption="Detail_col2" Removed="True">
+              <LayoutItem Id="Address" Index="0" RelativeSize="6.31163708086785" Removed="True" />
+              <LayoutItem Id="Email" Index="0" RelativeSize="100" Removed="True" />
+              <LayoutItem Id="FullName" Index="0" RelativeSize="6.31163708086785" Removed="True" />
+              <LayoutItem Id="Phone" Index="0" RelativeSize="6.31163708086785" Removed="True" />
+              <LayoutItem Id="NameOfOrganization" Removed="True" />
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="Files_Group" Direction="Vertical" RelativeSize="56.124314442413166">
+            <LayoutItem Id="Files" RelativeSize="100" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="Registration_Dossier_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100" ImageName="info" Caption="Chi tiết">
+          <LayoutGroup Id="Detail" RelativeSize="52.83363802559415" Caption="Chi tiết">
+            <LayoutGroup Id="Detail_col1" RelativeSize="49.84177215189873">
+              <LayoutItem Id="NameOfOrganization" ViewItem="NameOfOrganization" Index="0" RelativeSize="12.5" IsNewNode="True" />
+              <LayoutItem Id="FullName" ViewItem="FullName" Index="1" RelativeSize="9.375" IsNewNode="True" />
+              <LayoutItem Id="Address" ViewItem="Address" Index="2" RelativeSize="9.375" IsNewNode="True" />
+              <LayoutItem Id="Phone" ViewItem="Phone" Index="3" RelativeSize="9.375" IsNewNode="True" />
+              <LayoutItem Id="Email" ViewItem="Email" Index="4" RelativeSize="9.375" IsNewNode="True" />
+              <LayoutItem Id="ConsumptionMarket" Index="5" RelativeSize="4.724409448818897" Removed="True" />
+              <LayoutItem Id="OfficeAddress" Index="5" RelativeSize="50" />
+              <LayoutItem Id="PackageSize" Index="5" RelativeSize="4.724409448818897" Removed="True" />
+              <LayoutItem Id="PackagingLocations" Index="5" RelativeSize="4.724409448818897" Removed="True" />
+              <LayoutItem Id="ProductBrand" Index="5" RelativeSize="74.80314960629921" Removed="True" />
+              <LayoutItem Id="ProductCategories" Index="5" RelativeSize="4.724409448818897" Removed="True" />
+              <LayoutItem Id="ProductionLocations" Index="5" RelativeSize="4.724409448818897" Removed="True" />
+              <LayoutItem Id="ProjectedOutput" Index="5" RelativeSize="4.724409448818897" Removed="True" />
+            </LayoutGroup>
+            <LayoutGroup Id="Detail_col2" RelativeSize="50.15822784810127">
+              <LayoutItem Id="ProductionLocations" ViewItem="ProductionLocations" Index="0" RelativeSize="12.5" IsNewNode="True" />
+              <LayoutItem Id="PackagingLocations" ViewItem="PackagingLocations" Index="1" RelativeSize="9.375" IsNewNode="True" />
+              <LayoutItem Id="Address" Index="2" RelativeSize="4.724409448818897" Removed="True" />
+              <LayoutItem Id="Email" Index="2" RelativeSize="88.97637795275591" Removed="True" />
+              <LayoutItem Id="FullName" Index="2" RelativeSize="4.724409448818897" Removed="True" />
+              <LayoutItem Id="Phone" Index="2" RelativeSize="4.724409448818897" Removed="True" />
+              <LayoutItem Id="ProjectedOutput" ViewItem="ProjectedOutput" Index="2" RelativeSize="9.375" IsNewNode="True" />
+              <LayoutItem Id="ProductCategories" ViewItem="ProductCategories" Index="3" RelativeSize="9.375" IsNewNode="True" />
+              <LayoutItem Id="PackageSize" ViewItem="PackageSize" Index="4" RelativeSize="9.375" IsNewNode="True" />
+              <LayoutItem Id="ConsumptionMarket" ViewItem="ConsumptionMarket" Index="5" RelativeSize="9.375" IsNewNode="True" />
+              <LayoutItem Id="ProductBrand" ViewItem="ProductBrand" Index="6" RelativeSize="9.375" IsNewNode="True" />
+              <LayoutItem Id="RegistrationType" Index="7" RelativeSize="9.375" />
+              <LayoutItem Id="RegistrationStatus" Index="8" RelativeSize="9.375" />
+              <LayoutItem Id="SubmissionDate" RelativeSize="12.5" Index="9" />
+              <LayoutItem Id="NameOfOrganization" Removed="True" />
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="Files_Group" Caption="Tệp đính kèm" Direction="Vertical" RelativeSize="47.16636197440585">
+            <LayoutItem Id="Files" RelativeSize="100" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="Registration_Renew_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100" ImageName="info" Caption="Chi tiết">
+          <LayoutGroup Id="Detail" RelativeSize="39.6709323583181" Index="0" Caption="Chi tiết">
+            <LayoutGroup Id="Detail_col1" RelativeSize="49.84177215189873">
+              <LayoutItem Id="NameOfOrganization" Index="0" RelativeSize="17.391304347826086" ViewItem="NameOfOrganization" IsNewNode="True" />
+              <LayoutItem Id="FullName" ViewItem="FullName" Index="1" RelativeSize="13.043478260869565" IsNewNode="True" />
+              <LayoutItem Id="Address" ViewItem="Address" Index="2" RelativeSize="13.043478260869565" IsNewNode="True" />
+              <LayoutItem Id="Phone" ViewItem="Phone" Index="3" RelativeSize="13.043478260869565" IsNewNode="True" />
+              <LayoutItem Id="Email" ViewItem="Email" Index="4" RelativeSize="43.47826086956522" IsNewNode="True" />
+              <LayoutItem Id="NameCertificates" Index="4" RelativeSize="4.724409448818897" Removed="True" />
+              <LayoutItem Id="CertificateNumber" Index="5" RelativeSize="4.724409448818897" Removed="True" />
+              <LayoutItem Id="DateOfIssue" Index="5" RelativeSize="4.724409448818897" Removed="True" />
+              <LayoutItem Id="DeadlineToDate" Index="5" RelativeSize="4.724409448818897" Removed="True" />
+              <LayoutItem Id="SubmissionDate" Index="5" RelativeSize="74.80314960629921" Removed="True" />
+            </LayoutGroup>
+            <LayoutGroup Id="Detail_col2" RelativeSize="50.15822784810127" Caption="Detail_col2">
+              <LayoutItem Id="Address" Index="0" RelativeSize="6.299212598425197" Removed="True" />
+              <LayoutItem Id="FullName" Index="0" RelativeSize="6.299212598425197" Removed="True" />
+              <LayoutItem Id="NameCertificates" ViewItem="NameCertificates" Index="0" RelativeSize="17.391304347826086" IsNewNode="True" />
+              <LayoutItem Id="Phone" Index="0" RelativeSize="6.299212598425197" Removed="True" />
+              <LayoutItem Id="CertificateNumber" ViewItem="CertificateNumber" Index="1" RelativeSize="13.043478260869565" IsNewNode="True" />
+              <LayoutItem Id="Email" Index="1" RelativeSize="93.7007874015748" Removed="True" />
+              <LayoutItem Id="DateOfIssue" ViewItem="DateOfIssue" Index="2" RelativeSize="13.043478260869565" IsNewNode="True" />
+              <LayoutItem Id="DeadlineToDate" ViewItem="DeadlineToDate" Index="3" RelativeSize="13.043478260869565" IsNewNode="True" />
+              <LayoutItem Id="RegistrationType" RelativeSize="13.043478260869565" />
+              <LayoutItem Id="SubmissionDate" ViewItem="SubmissionDate" Index="5" RelativeSize="13.043478260869565" IsNewNode="True" />
+              <LayoutItem Id="RegistrationStatus" Index="6" RelativeSize="17.391304347826086" />
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="Files_Group" Direction="Vertical" RelativeSize="60.3290676416819">
+            <LayoutItem Id="Files" RelativeSize="100" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
   </Views>
 </Application>
