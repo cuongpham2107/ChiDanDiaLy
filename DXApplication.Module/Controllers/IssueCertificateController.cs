@@ -19,11 +19,11 @@ using System.Text;
 namespace DXApplication.Module.Controllers
 {
    
-    public class IssueCertificateController<T> : CustomController where T : class
+    public partial class IssueCertificateController : CustomController 
     {
         public IssueCertificateController()
         {
-            IssueCertificateAction();
+            IssueCertificateAction(); 
         }
         private void IssueCertificateAction()
         {
@@ -31,19 +31,37 @@ namespace DXApplication.Module.Controllers
             action.Caption = "Cấp giấy chứng nhận";
             action.TargetViewNesting = Nesting.Root;
             action.TargetViewType = ViewType.DetailView;
-            action.TargetObjectType = typeof(T);
+            action.TargetObjectType = typeof(Registration_Dossier);
             action.SelectionDependencyType = SelectionDependencyType.RequireSingleObject;
             action.ImageName = string.Empty;
-            //action.TargetObjectsCriteria = "[RegistrationStatus] <> ##Enum#DXApplication.Blazor.Common.Enums+RegistrationStatus,New#";
             action.ConfirmationMessage = "Xác nhận cấp giấy chứng nhận cho cơ sở này!!!";
             action.Execute += (object s, SimpleActionExecuteEventArgs e) =>
             {
-                var objCurrent = e.CurrentObject as T;
-                if (objCurrent != null)
+                
+                if(((DetailView)ObjectSpace.Owner).CurrentObject is Registration_Dossier t) 
                 {
-
+                    Organization _o = ObjectSpace.CreateObject<Organization>();
+                    var _t = ObjectSpace.GetObject(t);
+                    _o.NameOfOrganization = _t.NameOfOrganization;
+                    _o.FullName = _t.FullName;
+                    _o.Address = _t.Address;
+                    _o.Email = _t.Email;
+                    _o.Phone = _t.Phone;
+                    _o.CertificateNumber = "SKHCN-CTC-" + GenerateRandomString();
+                    _o.DateRange = DateTime.Now;
+                    _o.Expired = DateTime.Now.AddYears(5);
+                    _o.OrganizationStatus = Blazor.Common.Enums.OrganizationStatus.StillValidated;
+                    this.ObjectSpace.CommitChanges();
+                    Application.ShowViewStrategy.ShowMessage("Cấp giấy chứng nhận thành công", InformationType.Success,5000,InformationPosition.Bottom);
                 }
             };
+        }
+        private string GenerateRandomString()
+        {
+            Random random = new Random();
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            return new string(Enumerable.Repeat(chars, 8)
+              .Select(s => s[random.Next(s.Length)]).ToArray());
         }
     }
 }
