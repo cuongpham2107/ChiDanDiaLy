@@ -70,12 +70,12 @@ namespace DXApplication.Module.BusinessObjects.Project
             get => reason;
             set => SetPropertyValue(nameof(Reason), ref reason, value);
         }
-        [DevExpress.Xpo.Association("Registration_Amend-Files")]
-        public XPCollection<File> Files
+        [DevExpress.Xpo.Association("Registration_Amend-Attachments")]
+        public XPCollection<Attachment> Files
         {
             get
             {
-                return GetCollection<File>(nameof(Files));
+                return GetCollection<Attachment>(nameof(Files));
             }
         }
     }

@@ -1,0 +1,126 @@
+
+  .truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .alert_custom {
+    position: fixed;
+    pointer-events: none;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 9999999999;
+  }
+
+  /* list */
+  .alert_custom .list {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    width: 100%;
+    max-width: 400px;
+    float: right;
+  }
+
+  /* item */
+  .alert_custom .list .item {
+    --line-height: 4px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: .5rem;
+    color: #fff;
+    border-radius: 0.25rem;
+    overflow: hidden;
+    padding-bottom: calc(.5rem + var(--line-height))
+  }
+  .alert_custom .list .item.success {
+    background: #16A34A;
+  }
+  .alert_custom .list .item.error {
+    background: #EAB308;
+  }
+
+  .alert_custom .list .item::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: var(--line-height);
+    background: #fff;
+    bottom: 0;
+    left: 0;
+    animation: line 3s linear;
+  }
+
+  /* icon */
+  .alert_custom .list .icon {
+    flex: none;
+    display: block;
+    width: 40px;
+    height: 40px;
+  }
+
+  .alert_custom .list .icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* title */
+  .alert_custom .list .title {
+    min-width: 0;
+    flex-grow: 1;
+    margin-left: .5rem;
+  }
+
+  .alert_custom .list .title h6 {
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 14px !important;
+    color: inherit !important;
+    font-weight: bold;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .alert_custom .list .title p {
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 12px !important;
+    color: inherit !important;
+    margin: 0rem !important;
+    line-height: 1.5;
+  }
+
+  /* transiton */
+  .transition_all {
+    transition: all .3s ease-in-out;
+  }
+  .enter_start {
+    transform: scale(0);
+    opacity: 0;
+  }
+  .enter_end {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  .leave_start {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  .leave_end {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  @keyframes line {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+}

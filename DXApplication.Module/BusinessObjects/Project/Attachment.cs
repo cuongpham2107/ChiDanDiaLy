@@ -21,9 +21,9 @@ namespace DXApplication.Module.BusinessObjects.Project
     [NavigationItem(Menu.Manage)]
     [ImageName("file")]
     //[CustomDetailView(Tabbed = true)]
-    public class File : BaseObject
+    public class Attachment : BaseObject
     { 
-        public File(Session session)
+        public Attachment(Session session)
             : base(session)
         {
         }
@@ -36,7 +36,7 @@ namespace DXApplication.Module.BusinessObjects.Project
         Registration_Amend registration_Amend;
         Registration_Renew registration_Renew;
         Registration_Dossier registration_Dossier;
-        FileData fileData;
+        DevExpress.Persistent.BaseImpl.FileData fileData;
         string name;
 
         public string Name
@@ -46,12 +46,12 @@ namespace DXApplication.Module.BusinessObjects.Project
         }
 
 
-        public FileData FileData
+        public DevExpress.Persistent.BaseImpl.FileData FileData
         {
             get => fileData;
             set => SetPropertyValue(nameof(FileData), ref fileData, value);
         }
-        [Association("Registration_Dossier-Files")]
+        [Association("Registration_Dossier-Attachments")]
         [ModelDefault("AllowEdit","False")]
         [VisibleInListView(false)]
         public Registration_Dossier Registration_Dossier
@@ -59,7 +59,7 @@ namespace DXApplication.Module.BusinessObjects.Project
             get => registration_Dossier;
             set => SetPropertyValue(nameof(Registration_Dossier), ref registration_Dossier, value);
         }
-        [Association("Registration_Renew-Files")]
+        [Association("Registration_Renew-Attachments")]
         [ModelDefault("AllowEdit", "False")]
         [VisibleInListView(false)]
         public Registration_Renew Registration_Renew
@@ -67,7 +67,7 @@ namespace DXApplication.Module.BusinessObjects.Project
             get => registration_Renew;
             set => SetPropertyValue(nameof(Registration_Renew), ref registration_Renew, value);
         }
-        [Association("Registration_Amend-Files")]
+        [Association("Registration_Amend-Attachments")]
         [ModelDefault("AllowEdit", "False")]
         [VisibleInListView(false)]
         public Registration_Amend Registration_Amend

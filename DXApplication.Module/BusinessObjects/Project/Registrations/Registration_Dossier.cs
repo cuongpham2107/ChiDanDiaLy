@@ -104,12 +104,12 @@ namespace DXApplication.Module.BusinessObjects.Project
             set => SetPropertyValue(nameof(SubmissionDate), ref submissionDate, value);
         }
 
-        [Association("Registration_Dossier-Files")]
-        public XPCollection<File> Files
+        [Association("Registration_Dossier-Attachments")]
+        public XPCollection<Attachment> Files
         {
             get
             {
-                return GetCollection<File>(nameof(Files));
+                return GetCollection<Attachment>(nameof(Files));
             }
         }
     }

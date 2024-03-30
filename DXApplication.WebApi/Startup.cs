@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.OData;
 using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.ApplicationBuilder;
 using DXApplication.Module.BusinessObjects.Project;
+using System.Net.Mail;
 
 namespace DXApplication.WebApi;
 
@@ -29,6 +30,7 @@ public class Startup {
                 options.BusinessObject<Registration_Dossier>();
                 options.BusinessObject<Registration_Amend>();
                 options.BusinessObject<Registration_Renew>();
+                options.BusinessObject<Module.BusinessObjects.Project.Attachment>();
             });
 
             builder.Modules
@@ -69,6 +71,7 @@ public class Startup {
         }, Configuration);
 
         services
+            .AddCors()
             .AddControllers()
             .AddOData((options, serviceProvider) => {
                 options
@@ -109,6 +112,13 @@ public class Startup {
             // The default HSTS value is 30 days. To change this for production scenarios, see: https://aka.ms/aspnetcore-hsts.
             app.UseHsts();
         }
+        app.UseCors(c =>
+        {
+            c.AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader();
+
+        });
         app.UseHttpsRedirection();
         app.UseRequestLocalization();
         app.UseStaticFiles();

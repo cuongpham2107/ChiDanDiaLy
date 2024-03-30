@@ -69,12 +69,12 @@ namespace DXApplication.Module.BusinessObjects.Project
             set => SetPropertyValue(nameof(SubmissionDate), ref submissionDate, value);
         }
         [XafDisplayName("Tài liệu đính kèm")]
-        [Association("Registration_Renew-Files")]
-        public XPCollection<File> Files
+        [Association("Registration_Renew-Attachments")]
+        public XPCollection<Attachment> Files
         {
             get
             {
-                return GetCollection<File>(nameof(Files));
+                return GetCollection<Attachment>(nameof(Files));
             }
         }
     }
