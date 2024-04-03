@@ -33,7 +33,6 @@ namespace DXApplication.Module.BusinessObjects.Project
             this.RegistrationStatus = Enums.RegistrationStatus.New;
         }
 
-        DateTime? submissionDate;
         DateTime? deadlineToDate;
         DateTime? dateOfIssue;
         string certificateNumber;
@@ -62,20 +61,6 @@ namespace DXApplication.Module.BusinessObjects.Project
             get => deadlineToDate;
             set => SetPropertyValue(nameof(DeadlineToDate), ref deadlineToDate, value);
         }
-         [XafDisplayName("Ngày gửi đơn")]
-        public DateTime? SubmissionDate
-        {
-            get => submissionDate;
-            set => SetPropertyValue(nameof(SubmissionDate), ref submissionDate, value);
-        }
-        [XafDisplayName("Tài liệu đính kèm")]
-        [Association("Registration_Renew-Attachments")]
-        public XPCollection<Attachment> Files
-        {
-            get
-            {
-                return GetCollection<Attachment>(nameof(Files));
-            }
-        }
+        
     }
 }

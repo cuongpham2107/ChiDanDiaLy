@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <DetailView Id="Registration_Dossier_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main" RelativeSize="100" ImageName="info" Caption="Chi tiết">
+          <LayoutGroup Id="Detail" RelativeSize="52.83363802559415" Caption="Chi tiết">
+            <LayoutGroup Id="Detail_col1" RelativeSize="49.84177215189873">
+              <LayoutItem Id="NameOfOrganization" ViewItem="NameOfOrganization" Index="0" RelativeSize="12.5" />
+              <LayoutItem Id="FullName" ViewItem="FullName" Index="1" RelativeSize="9.375" />
+              <LayoutItem Id="Address" ViewItem="Address" Index="2" RelativeSize="9.375" />
+              <LayoutItem Id="Phone" ViewItem="Phone" Index="3" RelativeSize="9.375" />
+              <LayoutItem Id="Email" ViewItem="Email" Index="4" RelativeSize="9.375" />
+              <LayoutItem Id="ConsumptionMarket" Index="5" RelativeSize="4.724409448818897" Removed="True" />
+              <LayoutItem Id="OfficeAddress" Index="5" RelativeSize="50" />
+              <LayoutItem Id="PackageSize" Index="5" RelativeSize="4.724409448818897" Removed="True" />
+              <LayoutItem Id="PackagingLocations" Index="5" RelativeSize="4.724409448818897" Removed="True" />
+              <LayoutItem Id="ProductBrand" Index="5" RelativeSize="74.80314960629921" Removed="True" />
+              <LayoutItem Id="ProductCategories" Index="5" RelativeSize="4.724409448818897" Removed="True" />
+              <LayoutItem Id="ProductionLocations" Index="5" RelativeSize="4.724409448818897" Removed="True" />
+              <LayoutItem Id="ProjectedOutput" Index="5" RelativeSize="4.724409448818897" Removed="True" />
+            </LayoutGroup>
+            <LayoutGroup Id="Detail_col2" RelativeSize="50.15822784810127">
+              <LayoutItem Id="ProductionLocations" ViewItem="ProductionLocations" Index="0" RelativeSize="12.5" />
+              <LayoutItem Id="PackagingLocations" ViewItem="PackagingLocations" Index="1" RelativeSize="9.375" />
+              <LayoutItem Id="Address" Index="2" RelativeSize="4.724409448818897" Removed="True" />
+              <LayoutItem Id="Email" Index="2" RelativeSize="88.97637795275591" Removed="True" />
+              <LayoutItem Id="FullName" Index="2" RelativeSize="4.724409448818897" Removed="True" />
+              <LayoutItem Id="Phone" Index="2" RelativeSize="4.724409448818897" Removed="True" />
+              <LayoutItem Id="ProjectedOutput" ViewItem="ProjectedOutput" Index="2" RelativeSize="9.375" />
+              <LayoutItem Id="ProductCategories" ViewItem="ProductCategories" Index="3" RelativeSize="9.375" />
+              <LayoutItem Id="PackageSize" ViewItem="PackageSize" Index="4" RelativeSize="9.375" />
+              <LayoutItem Id="ConsumptionMarket" ViewItem="ConsumptionMarket" Index="5" RelativeSize="9.375" />
+              <LayoutItem Id="ProductBrand" ViewItem="ProductBrand" Index="6" RelativeSize="9.375" />
+              <LayoutItem Id="RegistrationType" Index="7" RelativeSize="9.375" />
+              <LayoutItem Id="RegistrationStatus" Index="8" RelativeSize="9.375" />
+              <LayoutItem Id="SubmissionDate" RelativeSize="12.5" Index="9" />
+              <LayoutItem Id="NameOfOrganization" Removed="True" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>

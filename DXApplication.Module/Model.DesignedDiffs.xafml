@@ -43,11 +43,6 @@
   </SchemaModules>
   <Views>
     <ListView Id="ApplicationUser_ListView" Caption="Users" />
-    <DetailView Id="File_DetailView">
-      <Layout>
-        <LayoutGroup Id="Main" Caption="Chi tiết" ImageName="info" />
-      </Layout>
-    </DetailView>
     <DetailView Id="Ingredient_DetailView">
       <Layout>
         <LayoutGroup Id="Main" ImageName="info" Caption="Chi tiết" />
@@ -56,13 +51,6 @@
     <DetailView Id="Media_DetailView">
       <Layout>
         <LayoutGroup Id="Main" ImageName="info" Caption="Chi tiết" />
-      </Layout>
-    </DetailView>
-    <DetailView Id="Organization_DetailView">
-      <Layout>
-        <TabbedGroup Id="Tabs">
-          <LayoutGroup Id="Main" ImageName="info" />
-        </TabbedGroup>
       </Layout>
     </DetailView>
     <DetailView Id="Product_DetailView">
@@ -110,47 +98,40 @@
         </LayoutGroup>
       </Layout>
     </DetailView>
-    <DetailView Id="Registration_Dossier_DetailView">
+    <DetailView Id="Registration_Dossier_DetailView" CaptionHorizontalAlignment="Default">
       <Layout>
-        <LayoutGroup Id="Main" RelativeSize="100" ImageName="info" Caption="Chi tiết">
-          <LayoutGroup Id="Detail" RelativeSize="52.83363802559415" Caption="Chi tiết">
-            <LayoutGroup Id="Detail_col1" RelativeSize="49.84177215189873">
-              <LayoutItem Id="NameOfOrganization" ViewItem="NameOfOrganization" Index="0" RelativeSize="12.5" IsNewNode="True" />
-              <LayoutItem Id="FullName" ViewItem="FullName" Index="1" RelativeSize="9.375" IsNewNode="True" />
-              <LayoutItem Id="Address" ViewItem="Address" Index="2" RelativeSize="9.375" IsNewNode="True" />
-              <LayoutItem Id="Phone" ViewItem="Phone" Index="3" RelativeSize="9.375" IsNewNode="True" />
-              <LayoutItem Id="Email" ViewItem="Email" Index="4" RelativeSize="9.375" IsNewNode="True" />
-              <LayoutItem Id="ConsumptionMarket" Index="5" RelativeSize="4.724409448818897" Removed="True" />
-              <LayoutItem Id="OfficeAddress" Index="5" RelativeSize="50" />
-              <LayoutItem Id="PackageSize" Index="5" RelativeSize="4.724409448818897" Removed="True" />
-              <LayoutItem Id="PackagingLocations" Index="5" RelativeSize="4.724409448818897" Removed="True" />
-              <LayoutItem Id="ProductBrand" Index="5" RelativeSize="74.80314960629921" Removed="True" />
-              <LayoutItem Id="ProductCategories" Index="5" RelativeSize="4.724409448818897" Removed="True" />
-              <LayoutItem Id="ProductionLocations" Index="5" RelativeSize="4.724409448818897" Removed="True" />
-              <LayoutItem Id="ProjectedOutput" Index="5" RelativeSize="4.724409448818897" Removed="True" />
-            </LayoutGroup>
-            <LayoutGroup Id="Detail_col2" RelativeSize="50.15822784810127">
-              <LayoutItem Id="ProductionLocations" ViewItem="ProductionLocations" Index="0" RelativeSize="12.5" IsNewNode="True" />
-              <LayoutItem Id="PackagingLocations" ViewItem="PackagingLocations" Index="1" RelativeSize="9.375" IsNewNode="True" />
-              <LayoutItem Id="Address" Index="2" RelativeSize="4.724409448818897" Removed="True" />
-              <LayoutItem Id="Email" Index="2" RelativeSize="88.97637795275591" Removed="True" />
-              <LayoutItem Id="FullName" Index="2" RelativeSize="4.724409448818897" Removed="True" />
-              <LayoutItem Id="Phone" Index="2" RelativeSize="4.724409448818897" Removed="True" />
-              <LayoutItem Id="ProjectedOutput" ViewItem="ProjectedOutput" Index="2" RelativeSize="9.375" IsNewNode="True" />
-              <LayoutItem Id="ProductCategories" ViewItem="ProductCategories" Index="3" RelativeSize="9.375" IsNewNode="True" />
-              <LayoutItem Id="PackageSize" ViewItem="PackageSize" Index="4" RelativeSize="9.375" IsNewNode="True" />
-              <LayoutItem Id="ConsumptionMarket" ViewItem="ConsumptionMarket" Index="5" RelativeSize="9.375" IsNewNode="True" />
-              <LayoutItem Id="ProductBrand" ViewItem="ProductBrand" Index="6" RelativeSize="9.375" IsNewNode="True" />
-              <LayoutItem Id="RegistrationType" Index="7" RelativeSize="9.375" />
-              <LayoutItem Id="RegistrationStatus" Index="8" RelativeSize="9.375" />
-              <LayoutItem Id="SubmissionDate" RelativeSize="12.5" Index="9" />
-              <LayoutItem Id="NameOfOrganization" Removed="True" />
+        <TabbedGroup Id="Tabs" Index="0" RelativeSize="100">
+          <LayoutGroup Id="Main" RelativeSize="100">
+            <LayoutGroup Id="Detail" Caption="Chi tiết" RelativeSize="100">
+              <LayoutGroup Id="Detail_col1" RelativeSize="49.92743105950653">
+                <LayoutItem Id="ProductionLocations" RelativeSize="8.791208791208792" />
+                <LayoutItem Id="PackagingLocations" RelativeSize="6.593406593406593" />
+                <LayoutItem Id="ProjectedOutput" RelativeSize="6.593406593406593" />
+                <LayoutItem Id="ProductCategories" RelativeSize="6.593406593406593" />
+                <LayoutItem Id="PackageSize" RelativeSize="6.593406593406593" />
+                <LayoutItem Id="ConsumptionMarket" RelativeSize="6.593406593406593" />
+                <LayoutItem Id="ProductBrand" RelativeSize="6.593406593406593" />
+                <LayoutItem Id="OfficeAddress" RelativeSize="51.64835164835165" />
+              </LayoutGroup>
+              <LayoutGroup Id="Detail_col2" RelativeSize="50.07256894049347">
+                <LayoutItem Id="SubmissionDate" RelativeSize="8.791208791208792" />
+                <LayoutItem Id="NameOfOrganization" RelativeSize="6.593406593406593" />
+                <LayoutItem Id="FullName" RelativeSize="6.593406593406593" />
+                <LayoutItem Id="Address" RelativeSize="6.593406593406593" />
+                <LayoutItem Id="Phone" RelativeSize="6.593406593406593" />
+                <LayoutItem Id="Email" RelativeSize="6.593406593406593" />
+                <LayoutItem Id="RegistrationType" RelativeSize="6.593406593406593" />
+                <LayoutItem Id="RegistrationStatus" RelativeSize="51.64835164835165" />
+              </LayoutGroup>
             </LayoutGroup>
           </LayoutGroup>
-          <LayoutGroup Id="Files_Group" Caption="Tệp đính kèm" Direction="Vertical" RelativeSize="47.16636197440585">
+          <LayoutGroup Id="Files" RelativeSize="100">
             <LayoutItem Id="Files" RelativeSize="100" />
           </LayoutGroup>
-        </LayoutGroup>
+          <LayoutGroup Id="Medias" RelativeSize="100">
+            <LayoutItem Id="Medias" RelativeSize="100" />
+          </LayoutGroup>
+        </TabbedGroup>
       </Layout>
     </DetailView>
     <DetailView Id="Registration_Renew_DetailView">

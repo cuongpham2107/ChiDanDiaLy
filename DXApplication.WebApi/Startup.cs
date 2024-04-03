@@ -7,6 +7,7 @@ using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.ApplicationBuilder;
 using DXApplication.Module.BusinessObjects.Project;
 using System.Net.Mail;
+using DevExpress.Persistent.BaseImpl;
 
 namespace DXApplication.WebApi;
 
@@ -31,6 +32,9 @@ public class Startup {
                 options.BusinessObject<Registration_Amend>();
                 options.BusinessObject<Registration_Renew>();
                 options.BusinessObject<Module.BusinessObjects.Project.Attachment>();
+                options.BusinessObject<MediaDataObject>();
+                options.BusinessObject<Media>();
+                options.BusinessObject<FileData>();
             });
 
             builder.Modules

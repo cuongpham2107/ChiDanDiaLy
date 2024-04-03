@@ -33,10 +33,9 @@ namespace DXApplication.Module.BusinessObjects.Project
            
         }
 
-        Registration_Amend registration_Amend;
-        Registration_Renew registration_Renew;
-        Registration_Dossier registration_Dossier;
-        DevExpress.Persistent.BaseImpl.FileData fileData;
+       
+        Registration registration;
+        FileData fileData;
         string name;
 
         public string Name
@@ -46,34 +45,19 @@ namespace DXApplication.Module.BusinessObjects.Project
         }
 
 
-        public DevExpress.Persistent.BaseImpl.FileData FileData
+        public FileData FileData
         {
             get => fileData;
             set => SetPropertyValue(nameof(FileData), ref fileData, value);
         }
-        [Association("Registration_Dossier-Attachments")]
+        [Association("Registration-Attachments")]
         [ModelDefault("AllowEdit","False")]
         [VisibleInListView(false)]
-        public Registration_Dossier Registration_Dossier
+        public Registration Registration
         {
-            get => registration_Dossier;
-            set => SetPropertyValue(nameof(Registration_Dossier), ref registration_Dossier, value);
+            get => registration;
+            set => SetPropertyValue(nameof(Registration), ref registration, value);
         }
-        [Association("Registration_Renew-Attachments")]
-        [ModelDefault("AllowEdit", "False")]
-        [VisibleInListView(false)]
-        public Registration_Renew Registration_Renew
-        {
-            get => registration_Renew;
-            set => SetPropertyValue(nameof(Registration_Renew), ref registration_Renew, value);
-        }
-        [Association("Registration_Amend-Attachments")]
-        [ModelDefault("AllowEdit", "False")]
-        [VisibleInListView(false)]
-        public Registration_Amend Registration_Amend
-        {
-            get => registration_Amend;
-            set => SetPropertyValue(nameof(Registration_Amend), ref registration_Amend, value);
-        }
+        
     }
 }

@@ -32,9 +32,10 @@ namespace DXApplication.Module.BusinessObjects.Project
            
         }
 
+        Registration registration;
         Ingredient ingredient;
         Product product;
-        MediaDataObject photo;
+        byte[] photo;
         string name;
         [XafDisplayName("Tên")]
         [FieldSize(255)]
@@ -45,8 +46,9 @@ namespace DXApplication.Module.BusinessObjects.Project
         }
 
         [XafDisplayName("Hình ảnh")]
-        [ImageEditor(ListViewImageEditorCustomHeight = 75, DetailViewImageEditorFixedHeight = 150)]
-        public MediaDataObject Photo
+        [ImageEditor(ListViewImageEditorCustomHeight = 75, DetailViewImageEditorFixedHeight = 150, ListViewImageEditorMode = ImageEditorMode.PictureEdit,
+    DetailViewImageEditorMode = ImageEditorMode.PictureEdit)]
+        public byte[] Photo
         {
             get => photo;
             set => SetPropertyValue(nameof(Photo), ref photo, value);
@@ -68,6 +70,12 @@ namespace DXApplication.Module.BusinessObjects.Project
             get => ingredient;
             set => SetPropertyValue(nameof(Ingredient), ref ingredient, value);
         }
-
+        [Association("Registration-Medias")]
+        [ModelDefault("AllowEdit", "False")]
+        public Registration Registration
+        {
+            get => registration;
+            set => SetPropertyValue(nameof(Registration), ref registration, value);
+        }
     }
 }

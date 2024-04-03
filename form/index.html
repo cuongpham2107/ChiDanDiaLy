@@ -12,9 +12,10 @@
 </head>
 
 <body>
-    
+
     <div class="relative min-h-screen flex items-center justify-center bg-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 bg-gray-500 bg-no-repeat bg-cover relative items-center"
-        style="background-image: url(https://loctancuong.vn/wp-content/uploads/2021/08/doi-che-tan-cuong-32.jpg);" x-data="hoso">
+        style="background-image: url(https://loctancuong.vn/wp-content/uploads/2021/08/doi-che-tan-cuong-32.jpg);"
+        x-data="hoso">
         <div class="absolute bg-black opacity-60 inset-0 z-0"></div>
         <div class="max-w-lg w-full space-y-8 p-10 bg-gray-100  rounded-xl shadow-lg z-10" x-show="popup == true">
             <div class="grid  gap-8 grid-cols-1">
@@ -25,37 +26,51 @@
                     <div class="form mt-10">
                         <div class="md:flex flex-row md:space-x-4 w-full text-xs">
                             <div class="mb-3 space-y-2 w-full text-xs">
-                               
+
                                 <div class="flex items-center mb-4">
-                                    <input id="default-radio-1" type="radio" value="dossier" x-model="type_registration" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" >
-                                    <label for="default-radio-1" class="ml-2 ms-2 text-xs font-medium text-gray-900 dark:text-gray-300">ĐƠN ĐỀ NGHỊ CẤP GIẤY CHỨNG NHẬN
+                                    <input id="default-radio-1" type="radio" value="dossier" x-model="type_registration"
+                                        name="default-radio"
+                                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                    <label for="default-radio-1"
+                                        class="ml-2 ms-2 text-xs font-medium text-gray-900 dark:text-gray-300">ĐƠN ĐỀ
+                                        NGHỊ CẤP GIẤY CHỨNG NHẬN
                                         QUYỀN SỬ DỤNG CHỈ DẪN ĐỊA LÝ “TÂN CƯƠNG”</label>
                                 </div>
                                 <div class="flex items-center mb-4">
-                                    <input  id="default-radio-2" type="radio" value="renew" x-model="type_registration" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                    <label for="default-radio-2" class="ml-2 ms-2 text-xs font-medium text-gray-900 dark:text-gray-300">ĐƠN ĐỀ GIA HẠN GIẤY CHỨNG NHẬN
+                                    <input id="default-radio-2" type="radio" value="renew" x-model="type_registration"
+                                        name="default-radio"
+                                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                    <label for="default-radio-2"
+                                        class="ml-2 ms-2 text-xs font-medium text-gray-900 dark:text-gray-300">ĐƠN ĐỀ
+                                        GIA HẠN GIẤY CHỨNG NHẬN
                                         QUYỀN SỬ DỤNG CHỈ DẪN ĐỊA LÝ “TÂN CƯƠNG”
-                                        </label>
+                                    </label>
                                 </div>
                                 <div class="flex items-center mb-4">
-                                    <input id="default-radio-2" type="radio" value="amend" x-model="type_registration" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                    <label for="default-radio-2" class="ml-2 ms-2 text-xs font-medium text-gray-900 dark:text-gray-300">ĐƠN ĐỀ NGHỊ SỬA ĐỔI/ CẤP ĐỔI/ CẤP LẠI GIẤY CHỨNG NHẬN 
+                                    <input id="default-radio-2" type="radio" value="amend" x-model="type_registration"
+                                        name="default-radio"
+                                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                    <label for="default-radio-2"
+                                        class="ml-2 ms-2 text-xs font-medium text-gray-900 dark:text-gray-300">ĐƠN ĐỀ
+                                        NGHỊ SỬA ĐỔI/ CẤP ĐỔI/ CẤP LẠI GIẤY CHỨNG NHẬN
                                         QUYỀN SỬ DỤNG CHỈ DẪN ĐỊA LÝ “TÂN CƯƠNG”
-                                        </label>
+                                    </label>
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>
                     <div class="mt-5 text-right md:space-x-3 md:block flex flex-col-reverse">
-                        
+
                         <button @click="ChooseRegistration()"
                             class="mb-2 md:mb-0 bg-green-600 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-full hover:shadow-lg hover:bg-green-500">Chọn</button>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="max-w-2xl w-full space-y-8 p-10 bg-white rounded-xl shadow-lg z-10" x-show="open == 'dossier'" style="display: none;">
+        <!-- Registration Dosier -->
+        <div class="max-w-4xl w-full space-y-8 p-10 bg-white rounded-xl shadow-lg z-10" x-show="open == 'dossier'"
+            style="display: none;">
             <div class="grid  gap-8 grid-cols-1">
                 <div class="flex flex-col ">
                     <div class="flex flex-col sm:flex-row items-center justify-center">
@@ -69,7 +84,7 @@
                                 <div class="mb-3 space-y-2 w-full text-xs">
                                     <label class="font-semibold text-gray-600 py-2">Tên tổ chức/ cá nhân <abbr
                                             title="required">(*)</abbr></label>
-                                    <input placeholder="..."
+                                    <input placeholder="Tên tổ chức"
                                         class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4"
                                         required="required" type="text" x-model="NameOfOrganization">
                                     <p class="text-red text-xs hidden">Please fill out this field.</p>
@@ -77,21 +92,22 @@
                                 <div class="mb-3 space-y-2 w-full text-xs">
                                     <label class="font-semibold text-gray-600 py-2">Họ và tên người đại diện <abbr
                                             title="required">(*)</abbr></label>
-                                    <input placeholder="..."
+                                    <input placeholder="Họ và tên"
                                         class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4"
                                         required="required" type="text" x-model="FullName">
                                     <p class=" text-red text-xs hidden">Please fill out this field.</p>
                                 </div>
                             </div>
-                            <div class="mb-3 space-y-2 w-full text-xs">
-                                <label class="font-semibold text-gray-600 py-2">Địa chỉ<abbr
-                                        title="required">(*)</abbr></label>
-                                <input placeholder="Địa chỉ"
-                                    class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4"
-                                    required="required" type="text" x-model="Address">
-                                <p class="text-red text-xs hidden">Please fill out this field.</p>
-                            </div>
+
                             <div class="md:flex flex-row md:space-x-4 w-full text-xs">
+                                <div class="mb-3 space-y-2 w-full text-xs">
+                                    <label class="font-semibold text-gray-600 py-2">Địa chỉ<abbr
+                                            title="required">(*)</abbr></label>
+                                    <input placeholder="Địa chỉ"
+                                        class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4"
+                                        required="required" type="text" x-model="Address">
+                                    <p class="text-red text-xs hidden">Please fill out this field.</p>
+                                </div>
                                 <div class="mb-3 space-y-2 w-full text-xs">
                                     <label class="font-semibold text-gray-600 py-2">Số điện thoại<abbr
                                             title="required">(*)</abbr></label>
@@ -114,49 +130,43 @@
                             <div class="md:flex md:flex-row md:space-x-4 w-full text-xs">
                                 <div class="w-full flex flex-col mb-3">
                                     <label class="font-semibold text-gray-600 py-2">Địa điểm sản xuất</label>
-                                    <input placeholder="..."
+                                    <input
                                         class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4"
-                                        type="text"
-                                        x-model="ProductionLocations">
+                                        type="text" x-model="ProductionLocations">
                                 </div>
                                 <div class="w-full flex flex-col mb-3">
                                     <label class="font-semibold text-gray-600 py-2">Địa điểm chế biến đóng gói</label>
-                                    <input placeholder="..."
+                                    <input
                                         class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4"
-                                        type="text"
-                                        x-model="PackagingLocations">
+                                        type="text" x-model="PackagingLocations">
                                 </div>
                             </div>
                             <div class="md:flex md:flex-row md:space-x-4 w-full text-xs">
                                 <div class="w-full flex flex-col mb-3">
                                     <label class="font-semibold text-gray-600 py-2">Chủng loại sản phẩm</label>
-                                    <input placeholder="..."
+                                    <input
                                         class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4"
-                                        type="text"
-                                        x-model="ProductCategories">
+                                        type="text" x-model="ProductCategories">
                                 </div>
                                 <div class="w-full flex flex-col mb-3">
                                     <label class="font-semibold text-gray-600 py-2">Quy cách đóng gói</label>
-                                    <input placeholder="..."
+                                    <input
                                         class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4"
-                                        type="text"
-                                        x-model="PackageSize">
+                                        type="text" x-model="PackageSize">
                                 </div>
                             </div>
                             <div class="md:flex md:flex-row md:space-x-4 w-full text-xs">
                                 <div class="w-full flex flex-col mb-3">
                                     <label class="font-semibold text-gray-600 py-2">Thị trường tiêu thụ</label>
-                                    <input placeholder="..."
+                                    <input
                                         class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4"
-                                        type="text"
-                                        x-model="ConsumptionMarket">
+                                        type="text" x-model="ConsumptionMarket">
                                 </div>
                                 <div class="w-full flex flex-col mb-3">
                                     <label class="font-semibold text-gray-600 py-2">Sản lượng</label>
-                                    <input placeholder="..."
-                                    class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4"
-                                    type="text"
-                                    x-model="ProjectedOutput">
+                                    <input
+                                        class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4"
+                                        type="text" x-model="ProjectedOutput">
                                 </div>
                                 <div class="w-full flex flex-col mb-3">
                                     <label class="font-semibold text-gray-600 py-2">Có nhãn hiệu hay không?</label>
@@ -171,16 +181,31 @@
                             <div class="mb-3 space-y-2 w-full text-xs">
                                 <label class="font-semibold text-gray-600 py-2">Văn phòng đại diện/ chi nhánh/ cửa hàng/
                                     đại lý:</label>
-                                <input placeholder="..."
+                                <input
                                     class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4"
                                     type="text" x-model="OfficeAddress">
                             </div>
                             <div class="mb-3 space-y-2 w-full text-xs">
                                 <label class="font-semibold text-gray-600 py-2">Văn bản, tài liệu đính kèm ...<abbr
                                         title="required">*</abbr></label>
-                                <input placeholder="..."
+                                <input
                                     class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 py-2 px-4"
-                                    type="file" x-model="Files" multiple>
+                                    type="file" multiple="true"
+                                    x-on:change="Files = Object.values($event.target.files)">
+                            </div>
+                            <div class="md:flex md:flex-col md:space-x-4 w-full text-xs">
+                                <div class="mb-3 space-y-2 w-full text-xs">
+                                    <label class="font-semibold text-gray-600 py-2">Hình ảnh<abbr
+                                            title="required">*</abbr></label>
+                                    <input
+                                        class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 py-2 px-4"
+                                        type="file" multiple="true" x-on:change="preview($event.target.files)">
+                                </div>
+                                <div class="mb-3 w-full text-xs">
+                                    <div id="preview">
+
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="mt-5 text-right md:space-x-3 md:block flex flex-col-reverse">
@@ -195,42 +220,305 @@
                 </div>
             </div>
         </div>
+        <!-- End Registration Dosier -->
 
+        <!-- Registration Renew -->
+        <div class="max-w-4xl w-full space-y-8 p-10 bg-white rounded-xl shadow-lg z-10" x-show="open == 'renew'"
+            style="display: none;">
+            <div class="grid  gap-8 grid-cols-1">
+                <div class="flex flex-col ">
+                    <div class="flex flex-col sm:flex-row items-center justify-center">
+                        <h2 class="font-semibold text-xl">Đơn đề nghị gia hạn giấy chứng nhận quyền chỉ dẫn
+                            địa lý "Tân Cương"</h2>
+                        <div class="w-full sm:w-auto sm:ml-auto mt-3 sm:mt-0"></div>
+                    </div>
+                    <div class="mt-5">
+                        <form class="form" action="#">
+                            <div class="md:flex flex-row md:space-x-4 w-full text-xs">
+                                <div class="mb-3 space-y-2 w-full text-xs">
+                                    <label class="font-semibold text-gray-600 py-2">Tên tổ chức/ cá nhân <abbr
+                                            title="required">(*)</abbr></label>
+                                    <input placeholder="Tên tổ chức"
+                                        class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4"
+                                        required="required" type="text" x-model="NameOfOrganization">
+                                    <p class="text-red text-xs hidden">Please fill out this field.</p>
+                                </div>
+                                <div class="mb-3 space-y-2 w-full text-xs">
+                                    <label class="font-semibold text-gray-600 py-2">Họ và tên người đại diện <abbr
+                                            title="required">(*)</abbr></label>
+                                    <input placeholder="Họ và tên"
+                                        class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4"
+                                        required="required" type="text" x-model="FullName">
+                                    <p class=" text-red text-xs hidden">Please fill out this field.</p>
+                                </div>
+                            </div>
+
+                            <div class="md:flex flex-row md:space-x-4 w-full text-xs">
+                                <div class="mb-3 space-y-2 w-full text-xs">
+                                    <label class="font-semibold text-gray-600 py-2">Địa chỉ<abbr
+                                            title="required">(*)</abbr></label>
+                                    <input placeholder="Địa chỉ"
+                                        class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4"
+                                        required="required" type="text" x-model="Address">
+                                    <p class="text-red text-xs hidden">Please fill out this field.</p>
+                                </div>
+                                <div class="mb-3 space-y-2 w-full text-xs">
+                                    <label class="font-semibold text-gray-600 py-2">Số điện thoại<abbr
+                                            title="required">(*)</abbr></label>
+                                    <input placeholder="Số điện thoại"
+                                        class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4"
+                                        required="required" type="text" x-model="Phone">
+                                    <p class="text-red text-xs hidden">Please fill out this field.</p>
+                                </div>
+                                <div class="mb-3 space-y-2 w-full text-xs">
+                                    <label class="font-semibold text-gray-600 py-2">Email <abbr
+                                            title="required">(*)</abbr></label>
+                                    <input placeholder="Địa chỉ Email"
+                                        class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4"
+                                        required="required" type="text" x-model="Email">
+                                    <p class="text-red text-xs hidden">Please fill out this field.</p>
+                                </div>
+                            </div>
+
+
+                            <div class="md:flex md:flex-row md:space-x-4 w-full text-xs">
+                                <div class="w-full flex flex-col mb-3">
+                                    <label class="font-semibold text-gray-600 py-2">Đề nghị gia hạn Giấy chứng
+                                        nhận:</label>
+                                    <input
+                                        class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4"
+                                        type="text" x-model="NameCertificates">
+                                </div>
+
+                            </div>
+                            <div class="md:flex md:flex-row md:space-x-4 w-full text-xs">
+                                <div class="w-full flex flex-col mb-3">
+                                    <label class="font-semibold text-gray-600 py-2">Số giấy chứng nhận</label>
+                                    <input
+                                        class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4"
+                                        type="text" x-model="CertificateNumber">
+                                </div>
+                                <div class="w-full flex flex-col mb-3">
+                                    <label class="font-semibold text-gray-600 py-2">Ngày cấp</label>
+                                    <input
+                                        class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4"
+                                        type="date" x-model="DateOfIssue">
+                                </div>
+                                <div class="w-full flex flex-col mb-3">
+                                    <label class="font-semibold text-gray-600 py-2">Có thời hạn đến</label>
+                                    <input
+                                        class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4"
+                                        type="date" x-model="DeadlineToDate">
+                                </div>
+                            </div>
+                            <div class="mb-3 space-y-2 w-full text-xs">
+                                <label class="font-semibold text-gray-600 py-2">Văn bản, tài liệu đính kèm ...<abbr
+                                        title="required">*</abbr></label>
+                                <input
+                                    class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 py-2 px-4"
+                                    type="file" multiple="true"
+                                    x-on:change="Files = Object.values($event.target.files)">
+                            </div>
+                            <div class="md:flex md:flex-col md:space-x-4 w-full text-xs">
+                                <div class="mb-3 space-y-2 w-full text-xs">
+                                    <label class="font-semibold text-gray-600 py-2">Hình ảnh<abbr
+                                            title="required">*</abbr></label>
+                                    <input
+                                        class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 py-2 px-4"
+                                        type="file" multiple="true" x-on:change="preview($event.target.files)">
+                                </div>
+                                <div class="mb-3 w-full text-xs">
+                                    <div id="preview">
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-5 text-right md:space-x-3 md:block flex flex-col-reverse">
+                                <button @click="CancelRegistration()"
+                                    class="mb-2 md:mb-0 bg-white px-5 py-2 text-sm shadow-sm font-medium tracking-wider border text-gray-600 rounded-full hover:shadow-lg hover:bg-gray-100">
+                                    Quay lại </button>
+                                <button @click="fetchApiRegistrationRenew()"
+                                    class="mb-2 md:mb-0 bg-green-400 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-full hover:shadow-lg hover:bg-green-500">Gửi</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Registration Renew -->
+        <!-- Registration Amend -->
+        <div class="max-w-4xl w-full space-y-8 p-10 bg-white rounded-xl shadow-lg z-10" x-show="open == 'amend'"
+            style="display: none;">
+            <div class="grid  gap-8 grid-cols-1">
+                <div class="flex flex-col ">
+                    <div class="flex flex-col sm:flex-row items-center justify-center">
+                        <h2 class="font-semibold text-xl">Đơn đề nghị sủa đổi/ cấp đổi/ cấp lại giấy chứng nhận quyền chỉ dẫn
+                            địa lý "Tân Cương"</h2>
+                        <div class="w-full sm:w-auto sm:ml-auto mt-3 sm:mt-0"></div>
+                    </div>
+                    <div class="mt-5">
+                        <form class="form" action="#">
+                            <div class="md:flex flex-row md:space-x-4 w-full text-xs">
+                                <div class="mb-3 space-y-2 w-full text-xs">
+                                    <label class="font-semibold text-gray-600 py-2">Tên tổ chức/ cá nhân <abbr
+                                            title="required">(*)</abbr></label>
+                                    <input placeholder="Tên tổ chức"
+                                        class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4"
+                                        required="required" type="text" x-model="NameOfOrganization">
+                                    <p class="text-red text-xs hidden">Please fill out this field.</p>
+                                </div>
+                                <div class="mb-3 space-y-2 w-full text-xs">
+                                    <label class="font-semibold text-gray-600 py-2">Họ và tên người đại diện <abbr
+                                            title="required">(*)</abbr></label>
+                                    <input placeholder="Họ và tên"
+                                        class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4"
+                                        required="required" type="text" x-model="FullName">
+                                    <p class=" text-red text-xs hidden">Please fill out this field.</p>
+                                </div>
+                            </div>
+
+                            <div class="md:flex flex-row md:space-x-4 w-full text-xs">
+                                <div class="mb-3 space-y-2 w-full text-xs">
+                                    <label class="font-semibold text-gray-600 py-2">Địa chỉ<abbr
+                                            title="required">(*)</abbr></label>
+                                    <input placeholder="Địa chỉ"
+                                        class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4"
+                                        required="required" type="text" x-model="Address">
+                                    <p class="text-red text-xs hidden">Please fill out this field.</p>
+                                </div>
+                                <div class="mb-3 space-y-2 w-full text-xs">
+                                    <label class="font-semibold text-gray-600 py-2">Số điện thoại<abbr
+                                            title="required">(*)</abbr></label>
+                                    <input placeholder="Số điện thoại"
+                                        class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4"
+                                        required="required" type="text" x-model="Phone">
+                                    <p class="text-red text-xs hidden">Please fill out this field.</p>
+                                </div>
+                                <div class="mb-3 space-y-2 w-full text-xs">
+                                    <label class="font-semibold text-gray-600 py-2">Email <abbr
+                                            title="required">(*)</abbr></label>
+                                    <input placeholder="Địa chỉ Email"
+                                        class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4"
+                                        required="required" type="text" x-model="Email">
+                                    <p class="text-red text-xs hidden">Please fill out this field.</p>
+                                </div>
+                            </div>
+
+
+                            <div class="md:flex md:flex-row md:space-x-4 w-full text-xs">
+                                <div class="w-full flex flex-col mb-3">
+                                    <label class="font-semibold text-gray-600 py-2">Đề nghị sửa đổi/ cấp đổi/ cấp lại Giấy chứng nhận sau:</label>
+                                    <input
+                                        class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4"
+                                        type="text" x-model="NameCertificates_Amend">
+                                </div>
+
+                            </div>
+                            <div class="md:flex md:flex-row md:space-x-4 w-full text-xs">
+                                <div class="w-full flex flex-col mb-3">
+                                    <label class="font-semibold text-gray-600 py-2">Số giấy chứng nhận</label>
+                                    <input
+                                        class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4"
+                                        type="text" x-model="CertificateNumber_Amend">
+                                </div>
+                                <div class="w-full flex flex-col mb-3">
+                                    <label class="font-semibold text-gray-600 py-2">Ngày cấp</label>
+                                    <input
+                                        class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4"
+                                        type="date" x-model="DateOfIssue_Amend">
+                                </div>
+                                <div class="w-full flex flex-col mb-3">
+                                    <label class="font-semibold text-gray-600 py-2">Có thời hạn đến</label>
+                                    <input
+                                        class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4"
+                                        type="date" x-model="DeadlineToDate_Amend">
+                                </div>
+                            </div>
+                            <div class="md:flex md:flex-row md:space-x-4 w-full text-xs">
+                                <div class="w-full flex flex-col mb-3">
+                                    <label class="font-semibold text-gray-600 py-2">Lý do sửa đổi/ cấp đổi/ cấp lại Giấy chứng nhận:</label>
+                                    <input
+                                        class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4"
+                                        type="text" x-model="Reason_Amend">
+                                </div>
+
+                            </div>
+                            <div class="mb-3 space-y-2 w-full text-xs">
+                                <label class="font-semibold text-gray-600 py-2">Văn bản, tài liệu đính kèm ...<abbr
+                                        title="required">*</abbr></label>
+                                <input
+                                    class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 py-2 px-4"
+                                    type="file" multiple="true"
+                                    x-on:change="Files = Object.values($event.target.files)">
+                            </div>
+                            <div class="md:flex md:flex-col md:space-x-4 w-full text-xs">
+                                <div class="mb-3 space-y-2 w-full text-xs">
+                                    <label class="font-semibold text-gray-600 py-2">Hình ảnh<abbr
+                                            title="required">*</abbr></label>
+                                    <input
+                                        class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 py-2 px-4"
+                                        type="file" multiple="true" x-on:change="preview($event.target.files)">
+                                </div>
+                                <div class="mb-3 w-full text-xs">
+                                    <div id="preview">
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-5 text-right md:space-x-3 md:block flex flex-col-reverse">
+                                <button @click="CancelRegistration()"
+                                    class="mb-2 md:mb-0 bg-white px-5 py-2 text-sm shadow-sm font-medium tracking-wider border text-gray-600 rounded-full hover:shadow-lg hover:bg-gray-100">
+                                    Quay lại </button>
+                                <button @click="fetchApiRegistrationAmend()"
+                                    class="mb-2 md:mb-0 bg-green-400 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-full hover:shadow-lg hover:bg-green-500">Gửi</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Registration Amend -->
 
         <!-- Alert -->
         <div class="alert_custom">
             <div class="list">
-              <template x-for="item in list" :key="item.id">
-                <div class="item" x-show="item.show" 
-                  x-transition:enter="transition_all"
-                  x-transition:enter-start="enter_start"
-                  x-transition:enter-end="enter_end"
-                  x-transition:leave="transition_all"
-                  x-transition:leave-start="leave_start"
-                  x-transition:leave-end="leave_end"
-                  :class="item.type">
-                  <span class="icon">
-                    <template x-if="item.type == 'success'">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" style="fill: currentColor">
-                        <path d="m10 15.586-3.293-3.293-1.414 1.414L10 18.414l9.707-9.707-1.414-1.414z"></path>
-                      </svg>
-                    </template>
-                    <template x-if="item.type == 'error'">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" style="fill: currentColor"><path d="M11.953 2C6.465 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.493 2 11.953 2zM12 20c-4.411 0-8-3.589-8-8s3.567-8 7.953-8C16.391 4 20 7.589 20 12s-3.589 8-8 8z"></path><path d="M11 7h2v7h-2zm0 8h2v2h-2z"></path></svg>
-                    </template>
-                  </span>
-                  <div class="title">
-                    <h6 class="truncate" x-text="item.title"></h6>
-                    <p x-text="item.body"></p>
-                  </div>
-                </div>
-              </template>
+                <template x-for="item in list" :key="item.id">
+                    <div class="item" x-show="item.show" x-transition:enter="transition_all"
+                        x-transition:enter-start="enter_start" x-transition:enter-end="enter_end"
+                        x-transition:leave="transition_all" x-transition:leave-start="leave_start"
+                        x-transition:leave-end="leave_end" :class="item.type">
+                        <span class="icon">
+                            <template x-if="item.type == 'success'">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+                                    style="fill: currentColor">
+                                    <path d="m10 15.586-3.293-3.293-1.414 1.414L10 18.414l9.707-9.707-1.414-1.414z">
+                                    </path>
+                                </svg>
+                            </template>
+                            <template x-if="item.type == 'error'">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+                                    style="fill: currentColor">
+                                    <path
+                                        d="M11.953 2C6.465 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.493 2 11.953 2zM12 20c-4.411 0-8-3.589-8-8s3.567-8 7.953-8C16.391 4 20 7.589 20 12s-3.589 8-8 8z">
+                                    </path>
+                                    <path d="M11 7h2v7h-2zm0 8h2v2h-2z"></path>
+                                </svg>
+                            </template>
+                        </span>
+                        <div class="title">
+                            <h6 class="truncate" x-text="item.title"></h6>
+                            <p x-text="item.body"></p>
+                        </div>
+                    </div>
+                </template>
             </div>
-          </div>
+        </div>
     </div>
 
 
-   
+
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="main.js"></script>
 </body>

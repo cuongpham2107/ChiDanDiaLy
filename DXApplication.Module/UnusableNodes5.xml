@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <DetailView Id="File_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main" Caption="Chi tiết" ImageName="info" />
+      </Layout>
+    </DetailView>
+    <DetailView Id="Registration_Dossier_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="Files_Group" Caption="Tệp đính kèm" Direction="Vertical" RelativeSize="47.16636197440585">
+            <LayoutItem Id="Files" RelativeSize="100" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="Organization_DetailView">
+      <Layout Id="Layout">
+        <TabbedGroup Id="Tabs">
+          <LayoutGroup Id="Main" ImageName="info" />
+        </TabbedGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>

@@ -36,6 +36,8 @@ namespace DXApplication.Module.BusinessObjects.Project
             base.AfterConstruction();
            
         }
+
+        DateTime? submissionDate;
         RegistrationStatus registrationStatus;
         RegistrationType registrationType;
         string email;
@@ -88,6 +90,28 @@ namespace DXApplication.Module.BusinessObjects.Project
             get => registrationStatus;
             set => SetPropertyValue(nameof(RegistrationStatus), ref registrationStatus, value);
         }
-
+        [XafDisplayName("Ngày gửi đơn: ")]
+        public DateTime? SubmissionDate
+        {
+            get => submissionDate;
+            set => SetPropertyValue(nameof(SubmissionDate), ref submissionDate, value);
+        }
+        [Association("Registration-Attachments")]
+        public XPCollection<Attachment> Files
+        {
+            get
+            {
+                return GetCollection<Attachment>(nameof(Files));
+            }
+        }
+        [XafDisplayName("Hình ảnh đính kèm")]
+        [Association("Registration-Medias")]
+        public XPCollection<Media> Medias
+        {
+            get
+            {
+                return GetCollection<Media>(nameof(Medias));
+            }
+        }
     }
 }

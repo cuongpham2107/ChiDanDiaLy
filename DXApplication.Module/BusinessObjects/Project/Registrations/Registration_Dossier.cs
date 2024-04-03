@@ -20,8 +20,10 @@ namespace DXApplication.Module.BusinessObjects.Project
     [DefaultClassOptions]
     [XafDisplayName("Cấp mới")]
     [ImageName("revision")]
-    //[CustomDetailView(Tabbed = true)]
-    
+    [CustomDetailView(Tabbed = true)]
+    [CustomNestedListView(nameof(Files))]                               
+    [CustomNestedListView(nameof(Medias))]
+
     public class Registration_Dossier : Registration
     {
         public Registration_Dossier(Session session)
@@ -34,9 +36,6 @@ namespace DXApplication.Module.BusinessObjects.Project
             this.RegistrationType = Enums.RegistrationType.Dossier;
             this.RegistrationStatus = Enums.RegistrationStatus.New;
         }
-
-
-        DateTime? submissionDate;
         string officeAddress;
         bool productBrand;
         string consumptionMarket;
@@ -97,20 +96,8 @@ namespace DXApplication.Module.BusinessObjects.Project
             get => officeAddress;
             set => SetPropertyValue(nameof(OfficeAddress), ref officeAddress, value);
         }
-        [XafDisplayName("Ngày gửi đơn: ")]
-        public DateTime? SubmissionDate
-        {
-            get => submissionDate;
-            set => SetPropertyValue(nameof(SubmissionDate), ref submissionDate, value);
-        }
+        
 
-        [Association("Registration_Dossier-Attachments")]
-        public XPCollection<Attachment> Files
-        {
-            get
-            {
-                return GetCollection<Attachment>(nameof(Files));
-            }
-        }
+        
     }
 }
